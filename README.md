@@ -523,7 +523,7 @@ openclaw start
 
 ---
 
-**Built with ❤️ by Roberto & Friday**  
+**Built with ❤️ by Azazelpy& Friday**  
 **friday-ai-blueprint v1.0.0 — The World's Best AI Assistant** 🚀
 
 ---
