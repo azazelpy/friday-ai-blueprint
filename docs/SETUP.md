@@ -240,31 +240,32 @@ python3 lab/agent_creator.py --list-templates
 crontab -e
 
 # Add Friday's automation:
+# Replace $HOME with your actual home directory
 
 # Morning task prep (6 AM daily)
-0 6 * * * cd /Users/roberto/.openclaw/workspace && python3 lab/daily_task_prep.py >> lab/logs/daily-task-prep.log 2>&1
+0 6 * * * cd $HOME/.openclaw/workspace && python3 lab/daily_task_prep.py >> lab/logs/daily-task-prep.log 2>&1
 
 # Email triage (every 4 hours)
-0 */4 * * * cd /Users/roberto/.openclaw/workspace && python3 lab/email_triage.py >> lab/logs/email-triage.log 2>&1
+0 */4 * * * cd $HOME/.openclaw/workspace && python3 lab/email_triage.py >> lab/logs/email-triage.log 2>&1
 
 # Calendar check (every 4 hours)
-0 */4 * * * cd /Users/roberto/.openclaw/workspace && python3 lab/calendar_check.py >> lab/logs/calendar-check.log 2>&1
+0 */4 * * * cd $HOME/.openclaw/workspace && python3 lab/calendar_check.py >> lab/logs/calendar-check.log 2>&1
 
 # Morning brief (8:30 AM daily)
-30 8 * * * cd /Users/roberto/.openclaw/workspace && python3 lab/morning_brief.py >> lab/logs/morning-brief.log 2>&1
+30 8 * * * cd $HOME/.openclaw/workspace && python3 lab/morning_brief.py >> lab/logs/morning-brief.log 2>&1
 
 # Wellness check-ins
-0 8 * * * python3 lab/wellness_tracker.py --checkin morning >> lab/logs/wellness.log 2>&1
-0 21 * * * python3 lab/wellness_tracker.py --checkin evening >> lab/logs/wellness.log 2>&1
+0 8 * * * python3 $HOME/.openclaw/workspace/lab/wellness_tracker.py --checkin morning >> $HOME/.openclaw/workspace/lab/logs/wellness.log 2>&1
+0 21 * * * python3 $HOME/.openclaw/workspace/lab/wellness_tracker.py --checkin evening >> $HOME/.openclaw/workspace/lab/logs/wellness.log 2>&1
 
 # Meta-improver monitoring
-0 * * * * python3 lab/monitor_deployments.py >> lab/logs/monitoring.log 2>&1
-0 6 * * * python3 lab/verify_improvement.py >> lab/logs/verification.log 2>&1
-30 4 * * 0 python3 lab/trace_analyzer.py >> lab/logs/trace-analysis.log 2>&1
-0 5 * * 0 python3 lab/meta-improver.py >> lab/logs/meta-improver.log 2>&1
+0 * * * * python3 $HOME/.openclaw/workspace/lab/monitor_deployments.py >> $HOME/.openclaw/workspace/lab/logs/monitoring.log 2>&1
+0 6 * * * python3 $HOME/.openclaw/workspace/lab/verify_improvement.py >> $HOME/.openclaw/workspace/lab/logs/verification.log 2>&1
+30 4 * * 0 python3 $HOME/.openclaw/workspace/lab/trace_analyzer.py >> $HOME/.openclaw/workspace/lab/logs/trace-analysis.log 2>&1
+0 5 * * 0 python3 $HOME/.openclaw/workspace/lab/meta-improver.py >> $HOME/.openclaw/workspace/lab/logs/meta-improver.log 2>&1
 
 # Weekly wiki compilation
-0 5 * * 0 cd /Users/roberto/.openclaw/workspace && python3 friday-wiki/tools/wiki-compile.py --all >> lab/logs/wiki-compile.log 2>&1
+0 5 * * 0 cd $HOME/.openclaw/workspace && python3 friday-wiki/tools/wiki-compile.py --all >> lab/logs/wiki-compile.log 2>&1
 ```
 
 ---
