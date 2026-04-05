@@ -1,0 +1,42 @@
+# .gitignore for Friday Template
+
+# Logs
+lab/logs/*.log
+*.log
+
+# Memory (personal data)
+memory/*.md
+memory/wellness/*.md
+memory/entities/*.md
+
+# Tasks (personal)
+tasks/todo.md
+tasks/lessons.md
+
+# Config (API keys)
+TOOLS.md
+configs/*.json
+!configs/example.json
+
+# OpenClaw specific
+.openclaw/
+*.pyc
+__pycache__/
+
+# Environment
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.bak
